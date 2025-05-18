@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>IT Company</title>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div id="logo">
+                <a href="index.html">
+                    <img src="images/logo.png" alt="Логотип" style="height: 50px;">
+                </a>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="our_services.html">Наши услуги</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="content">
+        <div class="container">
+            <h1>Создаём цифровые решения для вашего бизнеса</h1>
+            <p>
+                Помогаем воплощать даже самые сложные идеи в удобные для пользователей приложения. Начинаем
+                с разработки концепции и дизайна и заканчиваем развертыванием в сторах и поддержкой..
+            </p>
+            <div class="card-row">
+                <div class="card">
+                    <img src="images/card1.png" alt="Картинка 1">
+                    <h3>Разработка</h3>
+                    <p>
+                        Мы создаём современные веб- и мобильные приложения, ориентируясь на высокую производительность,
+                        безопасность
+                        и удобство пользователя. Весь цикл — от архитектуры до публикации — под полным нашим контролем.
+                    </p>
+                </div>
+                <div class="card">
+                    <img src="images/card2.png" alt="Картинка 2">
+                    <h3>Дизайн</h3>
+                    <p>
+                        Разрабатываем привлекательные и интуитивно понятные интерфейсы, которые соответствуют актуальным
+                        трендам и
+                        требованиям целевой аудитории. Каждый элемент продуман до мелочей для максимального вовлечения
+                        пользователей.
+                    </p>
+                </div>
+                <div class="card">
+                    <img src="images/card3.png" alt="Картинка 3">
+                    <h3>Поддержка</h3>
+                    <p>
+                        Обеспечиваем постоянную техническую поддержку и регулярные обновления, чтобы ваш продукт
+                        оставался
+                        стабильным, безопасным и соответствовал изменяющимся требованиям рынка и пользователей.
+                    </p>
+                </div>
+            </div>
+            <div class="reviews">
+                <h1>Отзывы клиентов</h1>
+                <div class="slider">
+                    <div class="slide active">
+                        <img src="images/avatar1.png" alt="Аватар 1" class="avatar">
+                        <h3>Oliver</h3>
+                        <p class="review-text">Спасибо за проделанную работу! Специалисты всегда чутко принимали
+                            доработки и очень оперативно отвечали.</p>
+                    </div>
+                    <div class="slide">
+                        <img src="images/avatar2.png" alt="Аватар 2" class="avatar">
+                        <h3>Oscar</h3>
+                        <p class="review-text">Команда прекрасных специалистов высокого уровня. Скорость выполнения
+                            заказа просто космическая !!! Спасибо огромное .</p>
+                    </div>
+                    <div class="slide">
+                        <img src="images/avatar3.png" alt="Аватар 3" class="avatar">
+                        <h3>Emily</h3>
+                        <p class="review-text">Очень довольна результатом работы. Все работы были выполнены качественно
+                            и в срок. Будем работать и дальше</p>
+                    </div>
+
+                    <div class="slider-controls">
+                        <button id="prevBtn">&#10094;</button>
+                        <button id="nextBtn">&#10095;</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+        © 2025 Ваш сайт
+    </footer>
+
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        let currentSlide = 0;
+
+        const showSlide = (index) => {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                if (i === index) {
+                    slide.classList.add('active');
+                }
+            });
+        };
+
+        document.getElementById('prevBtn').addEventListener('click', () => {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(currentSlide);
+        });
+
+        document.getElementById('nextBtn').addEventListener('click', () => {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        });
+    </script>
+</body>
+
+</html>
