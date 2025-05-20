@@ -57,5 +57,21 @@ class Database {
             return false;
         }
     }
+
+    public function getContacts() {
+        try {
+            $conn = $this->getConnection();
+            $query = "SELECT * FROM contacts ORDER BY submission_date DESC";
+            $stmt = $conn->prepare($query);
+            $stmt->execute();
+            
+            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            error_log("Получены контакты: " . print_r($result, true)); // Логируем данные
+            return $result;
+        } catch(PDOException $exception) {
+            error_log("Ошибка при получении контактов: " . $exception->getMessage());
+            return [];
+        }
+    }
 }
 ?>
