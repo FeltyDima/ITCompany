@@ -409,3 +409,70 @@ nav {
         transform: translate(-50%, 0);
     }
 }
+
+/* Стили для блока списка контактов */
+.contacts-list {
+    margin: 30px auto;
+    max-width: 800px;
+    padding: 20px;
+    background-color: #2a2a2a;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+#contactsList {
+    margin-top: 20px;
+}
+
+/* Стили для элементов списка */
+.list-group-item {
+    background-color: #323232 !important;
+    border: 1px solid #444 !important;
+    color: #EAEAEA !important;
+    margin-bottom: 10px;
+    border-radius: 8px !important;
+    transition: all 0.3s ease;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.list-group-item:hover {
+    transform: translateX(10px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Стили для текста внутри элементов */
+.list-group-item span {
+    display: inline-block;
+    margin-right: 15px;
+}
+
+.contact-name {
+    color: #3a82f7;
+    font-weight: bold;
+    min-width: 200px;
+}
+
+.contact-email {
+    color: #B0B0B0;
+    font-size: 0.9em;
+}
+
+.contact-phone {
+    color: #4CAF50;
+    font-family: monospace;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .list-group-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .contact-name {
+        margin-bottom: 8px;
+    }
+}
