@@ -48,7 +48,6 @@ $services = $database->getServices();
                     <tbody>
                         <?php foreach ($services as $service): ?>
                             <?php
-                                // Создаем массив соответствий русских названий и латинских идентификаторов
                                 $service_links = [
                                     'Мобильная разработка' => 'mobile',
                                     'Веб-разработка' => 'web',
@@ -57,7 +56,6 @@ $services = $database->getServices();
                                     'Техническая поддержка' => 'help'
                                 ];
                                 
-                                // Получаем латинский идентификатор из массива
                                 $service_id = $service_links[$service['service_name'] ?? strtolower(preg_replace('/[^a-zA-Zа-яА-Я0-9]/u', '_', $service['service_name']))];
                             ?>
                         <tr>
