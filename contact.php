@@ -33,7 +33,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>IT Company</title>
-    <link rel="stylesheet" href="css/style.css?version=52"/>
+    <link rel="stylesheet" href="css/style.css?version=53"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 
 <body>
@@ -64,21 +67,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div class="container">
             <h1>Оставьте заявку и мы с вами свяжемся</h1>
             <div class="contact-form-container">
-                <form action="contact.php" method="POST" class="contact-form">
+                <form id="contactForm" class="contact-form">
                     <label for="name">ФИО:</label>
-                    <input type="text" id="name" name="name" placeholder="Иван Иванов" required
-                        value="<?php echo isset($_POST['name']) ? htmlspecialchars($_POST['name']) : ''; ?>">
-
+                    <input type="text" id="name" name="name" required>
                     <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" placeholder="example@email.com" required
-                        value="<?php echo isset($_POST['email']) ? htmlspecialchars($_POST['email']) : ''; ?>">
-
-                    <label for="phone">Номер телефона:</label>
-                    <input type="tel" id="phone" name="phone" placeholder="+7 (900) 000-00-00" required
-                        value="<?php echo isset($_POST['phone']) ? htmlspecialchars($_POST['phone']) : ''; ?>">
-
+                    <input type="email" id="email" name="email" required>
+                    <label for="phone">Телефон:</label>
+                    <input type="tel" id="phone" name="phone" required>
                     <button type="submit">Отправить</button>
                 </form>
+                <div class="contacts-list mt-4">
+                    <button id="refreshContacts" class="btn btn-primary">Обновить список</button>
+                    <ul id="contactsList" class="list-group mt-2"></ul>
+                </div>
+                <div class="modal fade" id="successModal">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-body">Заявка успешно отправлена!</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade" id="errorModal">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-body">Ошибка при отправке.</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -87,28 +102,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         © 2025 Ваш сайт
     </footer>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const notification = document.querySelector('.floating-notification');
-            const closeBtn = document.querySelector('.floating-notification .close-btn');
-
-            if (closeBtn) {
-                closeBtn.addEventListener('click', () => {
-                    notification.style.display = 'none';
-                });
-            }
-
-            if (notification) {
-                setTimeout(() => {
-                    notification.style.opacity = '0';
-                    notification.style.transition = 'opacity 0.5s';
-                    setTimeout(() => {
-                        notification.style.display = 'none';
-                    }, 500);
-                }, 5000);
-            }
-        });
-    </script>
+    <script src="script.js?version=52"></script>
 </body>
 
 </html>
